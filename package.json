@@ -1,0 +1,25 @@
+{
+  "name": "proj-lixeira",
+  "version": "1.0.0",
+  "description": "Projeto da lixeira",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "Lixeira"
+  ],
+  "author": "Pedro Scarpellini dos Santos",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "27.0.2",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "nodemailer": "^6.9.7"
+  }
+}
