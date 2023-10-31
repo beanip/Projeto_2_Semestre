@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./senha-recuperar.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
-
-    <fieldset>
-        <input type="text" id="inp-email" placeholder="Insira aqui seu email">
-        <button id="btn-validar">ENVIAR CÓDIGO DE VALIDAÇÃO</button>
-    </fieldset>
+    <div class="painel_principal">
+        <div class="painel_esquerdo">
+            <div class="campos">
+                <img src="../../../assets/images/unifeob.png" class="feob-logo">
+                <h3>Recuperar senha</h3>
+                <input type="text" placeholder="Inserir seu endereço de email" class="field-input">
+                <button class="app-button" id="btn-validar">ENVIAR</button>
+                <button class="app-inv-button" id="btn-voltar">Voltar</button>
+            </div>
+        </div>
+        <div class="painel_direito"></div>
+    </div>
 
     <script>
         require('./senha-recuperar')
