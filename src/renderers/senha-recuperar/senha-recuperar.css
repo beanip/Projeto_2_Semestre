@@ -1,8 +1,6 @@
 html, body {
-    font-family: sans-serif;
-    background-color: aquamarine;
-  /*  background: url('file:///assets/images/fundo.png'); */
-    color: #9FEAF9;
+    background: #ffffff;
+    background: radial-gradient(#35fd1b,#3e13ff)
 }
 
 fieldset {

@@ -18,7 +18,7 @@ function createWindow() {
     x: state.x, y: state.y,
     width: state.width, height: state.height,
     minWidth: 1100,
-    minHeight: 500,
+    minHeight: 750,
     maximizable: true,
     frame: false,
     titleBarStyle: 'hidden',
@@ -29,8 +29,9 @@ function createWindow() {
   state.manage(mainWindow)
 
   mainWindow.loadFile('src/renderers/login/login.html')
+  //mainWindow.loadFile('src/renderers/senha-recuperar/senha-recuperar.html')
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null

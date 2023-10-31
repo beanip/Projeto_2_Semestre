@@ -19,7 +19,7 @@ const Controller = module.exports = {
                     mainWindow.loadFile('src/renderers/menu-monitorar/menu-monitorar.html')
                     break;
                 default:
-                    mainWindow.loadFile('src/renderers/splash/splash.html')
+                    mainWindow.loadFile('src/renderers/login/login.html')
             }
         })
     }

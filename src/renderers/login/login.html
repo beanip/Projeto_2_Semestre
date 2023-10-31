@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
+    <div class="painel_principal">
+        <div class="painel_esquerdo">
+            <div class="campos">
+                <img src="../../../assets/images/unifeob.png" class="feob-logo">
+                <h3>Faça seu login</h3>
+                <input type="text" id="inp-email" placeholder="EMAIL" class="field-input">
+                <input type="text" id="inp-senha" placeholder="SENHA" class="field-input">
 
-    <fieldset>
-        <input type="text" id="inp-email" placeholder="Insira seu email">
-        <input type="text" id="inp-senha" placeholder="Insira sua senha">
-        <button id="btn-entrar">ENTRAR</button>
-        <button id="btn-recuperar-senha">RECUPERAR SENHA</button>
-    </fieldset>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="ckb-administrador">
+                    <label class="form-check-label" for="ckb-administrador">Administrador</label>
+                </div>
+
+                <button class="recuperar-senha" id="btn-recuperar-senha">Esqueceu a senha?</button>
+                <button class="entrar" id="btn-entrar">ENTRAR</button>
+            </div>
+        </div>
+        <div class="painel_direito"></div>
+    </div>
 
     <script>
         require('./login')
