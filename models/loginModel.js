@@ -9,11 +9,6 @@ class LoginModel {
     }
 
     create(callback) {
-        db.abrirConexao()
-
-        console.log(this.email);
-        console.log(this.senha);
-
         const sql = 'insert into login (email, senha) values(?, ?)'
 
         const values = [this.email, this.senha]
@@ -28,8 +23,23 @@ class LoginModel {
                     callback(results.insertId);
             }
         )
+    }
 
-        db.fecharConexao();
+    fetch(callback) {
+        const sql = 'SELECT * FROM login WHERE email = ?;'
+
+        const values = [this.email]
+
+        db.conexao.query(
+            sql,
+            values,
+            (err, result) => {
+                if (err)
+                    callback(err, null)
+                else
+                    callback(null, result)
+            }
+        )
     }
 }
 

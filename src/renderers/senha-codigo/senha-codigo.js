@@ -1,7 +1,8 @@
 const ipcRenderer = require('electron').ipcRenderer
 
 let inpCodigo = document.getElementById('inp-codigo'),
-    btnValidar = document.getElementById('btn-validar')
+    btnValidar = document.getElementById('btn-validar'),
+    btnVoltar = document.getElementById('btn-voltar')
 
 btnValidar.addEventListener('click', async e => {
     const codigo = await ipcRenderer.invoke('pegarCodigoRecuperacaoEmail');
@@ -20,3 +21,7 @@ function isCodigoValido(codigoEmail, codigoDigitado) {
     else
         return false
 }
+
+btnVoltar.addEventListener('click', e => {
+    ipcRenderer.send('navegar', 'login')
+})

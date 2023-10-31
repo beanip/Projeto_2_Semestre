@@ -1,18 +1,18 @@
 var codigoRecuperacaoEmail = 0
 
-module.exports = {
+const Controller = module.exports = {    
+    gerarCodigo: function (min, max) {
+        codigoRecuperacaoEmail = Math.floor(Math.random() * (max - min + 1)) + min
+    },
+
     start: function (ipcMain, nodemailer) {
         ipcMain.on('enviarCodigoRecuperacaoEmail', (event, email) => {
             Controller.gerarCodigo(100000, 999999)
-       //     console.log(codigoRecuperacaoEmail);
+            console.log(codigoRecuperacaoEmail)
             Controller.enviarCodigoRecuperacaoEmail(nodemailer, email)
         })
 
         ipcMain.handle('pegarCodigoRecuperacaoEmail', () => codigoRecuperacaoEmail)
-    },
-
-    gerarCodigo: function (min, max) {
-        codigoRecuperacaoEmail = Math.floor(Math.random() * (max - min + 1)) + min
     },
 
     enviarCodigoRecuperacaoEmail: function (nodemailer, email) {

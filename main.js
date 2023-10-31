@@ -3,6 +3,7 @@ const windowStateKeeper = require('electron-window-state')
 const navigationManager = require('./managers/navigationManager')
 const emailManager = require('./managers/emailManager')
 const trayManager = require('./managers/trayManager')
+const database = require('./database/database')
 
 var nodemailer = require('nodemailer')
 
@@ -31,7 +32,7 @@ function createWindow() {
   mainWindow.loadFile('src/renderers/login/login.html')
   //mainWindow.loadFile('src/renderers/senha-recuperar/senha-recuperar.html')
 
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -42,13 +43,16 @@ function createWindow() {
   trayManager.createTray(tray, Menu, mainWindow)
   navigationManager.start(ipcMain, mainWindow)
   emailManager.start(ipcMain, nodemailer)
+  database.abrirConexao()
 }
 
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin')
+  if (process.platform !== 'darwin') {
+    database.fecharConexao()
     app.quit()
+  }
 })
 
 app.on('activate', () => {
