@@ -8,21 +8,25 @@ let btnEntrar = document.getElementById('btn-entrar'),
 
 // Listeners
 btnEntrar.addEventListener('click', e => {
-    console.log('Clicou btnEntrar')
-
     if (inpEmail.value && inpSenha.value) {
-        loginController.isLoginCorrect(inpEmail.value, inpSenha.value, (loginPermited) => {
-            console.log('Igual: ' + loginPermited)
+
+        loginController.get(inpEmail.value, (err, result) => {
+            if (err)
+                ipcRenderer.send('dialog', 'Algo deu errado, tente novamente.')
+            else if (!result || result.length === 0)
+                ipcRenderer.send('dialog', 'Email não existente')
+            else {
+                if (result[0].senha === inpSenha.value)
+                    ipcRenderer.send('navegar', 'menu-monitorar')
+                else
+                    ipcRenderer.send('dialog', 'Senha incorreta.')
+            }
         })
     } else {
-        console.log('Campo vazio')
+        ipcRenderer.send('dialog', 'Preencha todos os campos.')
     }
-
-
-    //  ipcRenderer.send('navegar', 'menu-monitorar')
 })
 
 btnRecuperarSenha.addEventListener('click', e => {
-    console.log('Clicou btnRecuperarSenha');
     ipcRenderer.send('navegar', 'senha-recuperar')
 })

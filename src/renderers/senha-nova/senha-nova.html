@@ -8,10 +8,42 @@
 
 <body>
     <fieldset>
-        <input type="password" id="inp-nova-senha" placeholder="Insira aqui a nova senha">
-        <input type="password" id="inp-repetir-nova-senha" placeholder="Confirme aqui a nova senha">
-        <button id="btn-confirmar">CONFIRMAR</button>
+
     </fieldset>
+
+    <script>
+        require('./senha-nova')
+    </script>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../base/css-base.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="painel_principal">
+        <div class="painel_esquerdo">
+            <div class="campos">
+                <img src="../../../assets/images/unifeob.png" class="feob-logo">
+                <h3>Altere sua senha</h3>
+                <input type="password" id="inp-nova-senha" placeholder="Nova senha" class="field-input">
+                <input type="password" id="inp-repetir-nova-senha" placeholder="Confirme a senha" class="field-input">
+                <button id="btn-confirmar" class="app-button">CONFIRMAR</button>
+                <button class="app-inv-button" id="btn-voltar">Voltar</button>
+            </div>
+        </div>
+        <div class="painel_direito"></div>
+    </div>
 
     <script>
         require('./senha-nova')

@@ -2,13 +2,20 @@ const ipcRenderer = require('electron').ipcRenderer
 
 let inpNovaSenha = document.getElementById('inp-nova-senha'),
     inpRepetirSenha = document.getElementById('inp-repetir-nova-senha'),
-    btnConfirmar = document.getElementById('btn-confirmar')
+    btnConfirmar = document.getElementById('btn-confirmar'),
+    btnVoltar = document.getElementById('btn-voltar')
+
 
 btnConfirmar.addEventListener('click', e => {
-    if (isSenhaIgual())
+    if (isSenhaIgual()) {
+        ipcRenderer.send('dialog', 'Senha modificada com sucesso')
         ipcRenderer.send('navegar', 'splash')
-    else
-        console.log('Senhas diferentes');
+    }
+    else {
+        ipcRenderer.send('dialog', 'As senhas precisam ser iguais. Confirme novamente.')
+        inpNovaSenha.value = ''
+        inpRepetirSenha.value = ''
+    }
 })
 
 function isSenhaIgual() {
@@ -20,3 +27,7 @@ function isSenhaIgual() {
     else
         return false
 }
+
+btnVoltar.addEventListener('click', e => {
+    ipcRenderer.send('navegar', 'login')
+})

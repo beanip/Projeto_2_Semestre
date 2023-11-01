@@ -4,6 +4,7 @@ const navigationManager = require('./managers/navigationManager')
 const emailManager = require('./managers/emailManager')
 const trayManager = require('./managers/trayManager')
 const database = require('./database/database')
+const dialogManager = require('./managers/dialogManager')
 
 var nodemailer = require('nodemailer')
 
@@ -42,6 +43,7 @@ function createWindow() {
 
   trayManager.createTray(tray, Menu, mainWindow)
   navigationManager.start(ipcMain, mainWindow)
+  dialogManager.start(ipcMain, mainWindow)
   emailManager.start(ipcMain, nodemailer)
   database.abrirConexao()
 }

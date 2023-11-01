@@ -10,36 +10,16 @@ class LoginModel {
 
     create(callback) {
         const sql = 'insert into login (email, senha) values(?, ?)'
-
         const values = [this.email, this.senha]
 
-        db.conexao.query(
-            sql,
-            values,
-            (erro, results) => {
-                if (erro)
-                    callback(erro)
-                else
-                    callback(results.insertId);
-            }
-        )
+        db.conexao.query(sql, values, (err, result) => { callback(err, result) })
     }
 
-    fetch(callback) {
+    get(callback) {
         const sql = 'SELECT * FROM login WHERE email = ?;'
-
         const values = [this.email]
 
-        db.conexao.query(
-            sql,
-            values,
-            (err, result) => {
-                if (err)
-                    callback(err, null)
-                else
-                    callback(null, result)
-            }
-        )
+        db.conexao.query(sql, values, (err, result) => { callback(err, result) })
     }
 }
 
