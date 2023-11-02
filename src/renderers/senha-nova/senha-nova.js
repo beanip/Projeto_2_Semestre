@@ -5,7 +5,6 @@ let inpNovaSenha = document.getElementById('inp-nova-senha'),
     btnConfirmar = document.getElementById('btn-confirmar'),
     btnVoltar = document.getElementById('btn-voltar')
 
-
 btnConfirmar.addEventListener('click', e => {
     if (isSenhaIgual()) {
         ipcRenderer.send('dialog', 'Senha modificada com sucesso')

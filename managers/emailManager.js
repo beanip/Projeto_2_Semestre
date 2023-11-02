@@ -9,7 +9,7 @@ const Controller = module.exports = {
         ipcMain.on('enviarCodigoRecuperacaoEmail', (event, email) => {
             Controller.gerarCodigo(100000, 999999)
             console.log(codigoRecuperacaoEmail)
-          //  Controller.enviarCodigoRecuperacaoEmail(nodemailer, email)
+          // Controller.enviarCodigoRecuperacaoEmail(nodemailer, email)
         })
 
         ipcMain.handle('pegarCodigoRecuperacaoEmail', () => codigoRecuperacaoEmail)

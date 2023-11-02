@@ -18,6 +18,15 @@ const Controller = module.exports = {
                 case 'menu-monitorar':
                     mainWindow.loadFile('src/renderers/menu-monitorar/menu-monitorar.html')
                     break;
+                case 'menu-editar':
+                    mainWindow.loadFile('src/renderers/menu-editar/menu-editar.html')
+                    break;
+                case 'menu-adicionar':
+                    mainWindow.loadFile('src/renderers/menu-adicionar/menu-adicionar.html')
+                    break;
+                case 'menu-historico':
+                    mainWindow.loadFile('src/renderers/menu-historico/menu-historico.html')
+                    break;
                 default:
                     mainWindow.loadFile('src/renderers/login/login.html')
             }
