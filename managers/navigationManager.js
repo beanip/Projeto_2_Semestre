@@ -1,4 +1,4 @@
-const Controller = module.exports = {
+module.exports = {
     start: function (ipcMain, mainWindow) {
         ipcMain.on('navegar', (event, destino) => {
             console.log(destino);
