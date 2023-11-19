@@ -16,7 +16,7 @@ class LoginModel {
     }
 
     get(callback) {
-        const sql = 'SELECT * FROM login WHERE email = ?;'
+        const sql = 'SELECT * FROM usuario WHERE email = ?;'
         const values = [this.email]
 
         db.conexao.query(sql, values, (err, result) => { callback(err, result) })

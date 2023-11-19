@@ -39,7 +39,7 @@ body {
     flex-direction: column;
     position: relative;
     height: 100%;
-    width: 73%;
+    width: 100%;
     margin: auto;
 }
 
@@ -90,23 +90,29 @@ body {
     border: none;
     border-radius: 8px;
     margin: auto;
-    margin-bottom: 50px;
     background: #0ac511;
     color: #fff;
     font-weight: bold;
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
     -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
     box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+    
 }
+
+.app-button-menu:hover {
+    background: #08910c;
+    -webkit-box-shadow: 0px 9px 15px -11px rgb(75, 47, 97);
+    -moz-box-shadow: 0px 9px 15px -11px rgb(64, 40, 83);
+    box-shadow: 0px 9px 15px -11px rgb(66, 40, 85);
+  }
 
 .button-selecionado {
     width: 170px;
     padding: 15px;
-    border: 2px solid #000000;
+    border: none;
     border-radius: 8px;
     margin: auto;
-    margin-bottom: 50px;
-    background: #0ac511;
+    background: #08910c;
     color: #fff;
     font-weight: bold;
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
@@ -132,8 +138,19 @@ body {
 .menu-esquerdo {
     width: 25%;
     height: 100%;
-    padding: 25px 25px;
+    /*  padding: 25px 25px;
+   
+  */
     background-color: #F1F2F2;
+}
+
+.img-logout {
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 5px;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    margin: auto;
 }
 
 .menu-direito {
@@ -142,9 +159,12 @@ body {
 }
 
 .img-logo {
+    margin: auto;
+    width: 60%;
+    /*
     margin-top: -15px;
-    width: 80%;
-    margin-left: 30px;
+    margin-left: -15px;
+    */
 }
 
 .botao-menu {

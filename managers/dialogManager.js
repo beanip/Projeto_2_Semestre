@@ -1,7 +1,7 @@
 const dialog = require('electron').dialog
 
 const Controller = module.exports = {
-    start: function (ipcMain, mainWindow) {
+    start: function (ipcMain) {
         ipcMain.on('dialog', (event, message) => {
             console.log(message)
             

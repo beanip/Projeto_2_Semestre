@@ -4,5 +4,5 @@ module.exports = banco.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'gatedb'
+    database: 'bdprojeto'
 })

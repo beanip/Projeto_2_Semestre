@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray, Menu, ipcMain } = require('electron')
+const { app, BrowserWindow, session, Tray, Menu, ipcMain } = require('electron')
 const windowStateKeeper = require('electron-window-state')
 const navigationManager = require('./managers/navigationManager')
 const emailManager = require('./managers/emailManager')
@@ -43,7 +43,7 @@ function createWindow() {
 
   trayManager.createTray(tray, Menu, mainWindow)
   navigationManager.start(ipcMain, mainWindow)
-  dialogManager.start(ipcMain, mainWindow)
+  dialogManager.start(ipcMain,)
   emailManager.start(ipcMain, nodemailer)
   database.abrirConexao()
 }
