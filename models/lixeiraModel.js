@@ -11,6 +11,20 @@ class LixeiraModel {
         this.dataUltimaTroca = dataUltimaTroca
     }
 
+    static edit(idlixeira, tipo, localizacao, callback) {
+        const sql = 'UPDATE lixeiras SET identificacao = ?, localizacao = ? WHERE idlixeira = ?'
+        const values = [tipo, localizacao, idlixeira]
+
+        db.conexao.query(sql, values, (err, result) => {
+            if (err) {
+                console.log(err);
+                callback(false)
+            }
+            else
+                callback(true)
+        })
+    }
+
     static create(tipo, localizacao, idusuario, callback) {
         const sql = 'INSERT INTO lixeiras(identificacao, localizacao, dataCadastro, quantidadeOcupada, dataUltimaTroca) VALUES (?, ?, ?, ?,?)'
         const values = [tipo, localizacao, new Date(), 0, new Date()]
@@ -23,7 +37,7 @@ class LixeiraModel {
                 const values = [result.insertId, idusuario]
 
                 db.conexao.query(sql, values, (err, result) => {
-                    if (err) 
+                    if (err)
                         callback(false)
                     else
                         callback(true)

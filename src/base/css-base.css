@@ -211,3 +211,9 @@ body {
     box-shadow: #00ff40 0 3px 7px inset;
     transform: translateY(2px);
 }
+
+.drop-down-list {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 380px;
+}
