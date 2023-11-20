@@ -1,14 +1,24 @@
 const ipcRenderer = require('electron').ipcRenderer
-const { limparSessao } = require('../../base/js-base')
+const lixeiraController = require('../../../controllers/lixeiraController')
+const { limparSessao, pegarUsuarioSessao } = require('../../base/js-base')
 
 let btnMonitorar = document.getElementById('btn-monitorar'),
     btnHistorico = document.getElementById('btn-historico'),
     btnAdicionar = document.getElementById('btn-adicionar'),
     btnEditar = document.getElementById('btn-editar'),
-    btnLogout = document.getElementById('btn-logout')
+    btnLogout = document.getElementById('btn-logout'),
+    gridContainer = document.getElementById('grid-container')
 
-//if (true)
-//btnEditar.style.visibility = "hidden"
+//if (pegarUsuarioSessao().isAdmin == 1)
+//    btnEditar.style.visibility = "hidden"
+
+lixeiraController.get(pegarUsuarioSessao().idusuario, (err, lixeiras) => {
+    if (err) {
+        console.log(err);
+    } else {
+       console.log(lixeiras);
+    }
+})
 
 btnMonitorar.addEventListener('click', e => {
     ipcRenderer.send('navegar', 'menu-monitorar')

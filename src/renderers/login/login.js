@@ -1,6 +1,6 @@
 const { isEqual, isNullOrEmpty, salvarUsuarioSessao } = require('../../base/js-base')
 const ipcRenderer = require('electron').ipcRenderer
-const loginController = require('../../../controllers/loginController')
+const usuarioController = require('../../../controllers/usuarioController')
 
 let btnEntrar = document.getElementById('btn-entrar'),
     btnRecuperarSenha = document.getElementById('btn-recuperar-senha'),
@@ -9,18 +9,15 @@ let btnEntrar = document.getElementById('btn-entrar'),
 
 // Listeners
 btnEntrar.addEventListener('click', e => {
-    ipcRenderer.send('navegar', 'menu-monitorar')
-
-
     if (inpEmail.value && inpSenha.value) {
-        loginController.get(inpEmail.value, (err, result) => {
+        usuarioController.get(inpEmail.value, (err, usuario) => {
             if (err)
                 ipcRenderer.send('dialog', 'Algo deu errado, tente novamente.')
-            else if (isNullOrEmpty(result))
+            else if (isNullOrEmpty(usuario))
                 ipcRenderer.send('dialog', 'Email não existente')
             else {
-                if (isEqual(result[0].senha, inpSenha.value)) {
-                    salvarUsuarioSessao(result[0])
+                if (isEqual(usuario.senha, inpSenha.value)) {
+                    salvarUsuarioSessao(usuario)
                     ipcRenderer.send('navegar', 'menu-monitorar')                  
                 } else
                     ipcRenderer.send('dialog', 'Senha incorreta.')

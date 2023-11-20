@@ -1,3 +1,5 @@
+const UsuarioModel = require("../../models/usuarioModel")
+
 module.exports = {
     isNullOrEmpty: function (string) {
         return !string || string.length === 0
@@ -18,5 +20,18 @@ module.exports = {
 
     limparSessao: function () {
         window.sessionStorage.clear()
+    },
+
+    pegarUsuarioSessao: function () {
+        var usuario = new UsuarioModel()
+        
+        usuario.idusuario = window.sessionStorage.getItem('idusuario')
+        usuario.nome = window.sessionStorage.getItem('nome')
+        usuario.email = window.sessionStorage.getItem('email')
+        usuario.isAdmin = window.sessionStorage.getItem('isAdmin')
+        usuario.senha = window.sessionStorage.getItem('senha')
+        usuario.isHabilitado = window.sessionStorage.getItem('isHabilitado')
+
+        return usuario
     }
 }
