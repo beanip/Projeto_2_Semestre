@@ -1,6 +1,5 @@
 .grid-container {
-    max-height:100%;
-    overflow:scroll;
+    max-height: 100%;
     overflow-y: scroll;
     display: grid;
     position: relative;
@@ -29,12 +28,12 @@
     position: relative;
 }
 
-.grid-text  {
+.grid-text {
     width: auto;
     margin: auto;
 }
 
-.header-text  {
+.header-text {
     font-size: 15px;
     width: 25px;
 }
