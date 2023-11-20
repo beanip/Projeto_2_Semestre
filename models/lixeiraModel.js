@@ -11,12 +11,11 @@ class LixeiraModel {
         this.dataUltimaTroca = dataUltimaTroca
     }
 
-    get(idusuario, callback) {
+    static get(idusuario, callback) {
         const sql = 'SELECT * FROM lixeira_has_usuario WHERE usuario_idusuario = ?;'
         const values = [idusuario]
 
         db.conexao.query(sql, values, (err, result) => {
-
             if (err) {
                 callback(err, null)
             } else {
@@ -43,7 +42,7 @@ class LixeiraModel {
                         } else {
                             let lixeiras = []
 
-                            result.forEach((lixeira) => {
+                            result.forEach(lixeira => {
                                 lixeiras.push(new LixeiraModel(
                                     lixeira.idlixeira,
                                     lixeira.identificacao,

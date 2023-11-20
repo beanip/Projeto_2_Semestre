@@ -1,4 +1,43 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    width: auto;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #1DE349;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.header-item {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.grid-text  {
+    width: auto;
+    margin: auto;
+}
+
+.header-text  {
+    font-size: 15px;
+    width: 25px;
+}
+
+.imagem-lixeira {
+    width: auto;
+    height: 70px;
+    margin: auto;
+    padding-right: 25px;
 }
