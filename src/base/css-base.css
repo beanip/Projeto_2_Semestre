@@ -43,6 +43,17 @@ body {
     margin: auto;
 }
 
+.campos-adicionar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 380px;
+    margin: auto;
+    align-items: center;
+    margin-top: 100px;
+    vertical-align: middle
+}
+
 .h3 {
     display: inline;
     text-align: center;

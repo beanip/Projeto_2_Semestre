@@ -11,6 +11,27 @@ class LixeiraModel {
         this.dataUltimaTroca = dataUltimaTroca
     }
 
+    static create(tipo, localizacao, idusuario, callback) {
+        const sql = 'INSERT INTO lixeiras(identificacao, localizacao, dataCadastro, quantidadeOcupada, dataUltimaTroca) VALUES (?, ?, ?, ?,?)'
+        const values = [tipo, localizacao, new Date(), 0, new Date()]
+
+        db.conexao.query(sql, values, (err, result) => {
+            if (err) {
+                callback(false)
+            } else {
+                const sql = 'INSERT INTO lixeira_has_usuario(lixeira_idlixeira, usuario_idusuario) VALUES (?, ?)'
+                const values = [result.insertId, idusuario]
+
+                db.conexao.query(sql, values, (err, result) => {
+                    if (err) 
+                        callback(false)
+                    else
+                        callback(true)
+                })
+            }
+        })
+    }
+
     static get(idusuario, callback) {
         const sql = 'SELECT * FROM lixeira_has_usuario WHERE usuario_idusuario = ?;'
         const values = [idusuario]
