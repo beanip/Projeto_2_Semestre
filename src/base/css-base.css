@@ -107,7 +107,7 @@ body {
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
     -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
     box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-    
+
 }
 
 .app-button-menu:hover {
@@ -115,7 +115,7 @@ body {
     -webkit-box-shadow: 0px 9px 15px -11px rgb(75, 47, 97);
     -moz-box-shadow: 0px 9px 15px -11px rgb(64, 40, 83);
     box-shadow: 0px 9px 15px -11px rgb(66, 40, 85);
-  }
+}
 
 .button-selecionado {
     width: 170px;

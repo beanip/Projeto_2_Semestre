@@ -57,8 +57,6 @@ class LixeiraModel {
                 const values = []
                 let sql = 'SELECT * FROM lixeiras'
 
-                console.log(result.length);
-
                 result.forEach(function (lixeira, i) {
                     if (i == 0)
                         sql = sql.concat(' WHERE idlixeira = ?')
