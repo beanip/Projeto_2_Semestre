@@ -1,7 +1,10 @@
-const UsuarioModel = require("../models/usuarioModel")
+const usuarioModel = require("../models/usuarioModel")
 
 module.exports = {
     get: function (email, callback) {
-        new UsuarioModel(null, null, email).get((err, usuario) => { callback(err, usuario) })
+        usuarioModel.get(email, (err, usuario) => { callback(err, usuario) })
+    },
+    updateSenha: function (senha, email, callback) {
+        usuarioModel.updateSenha(senha, email, (sucesso) => { callback(sucesso) })
     }
 }

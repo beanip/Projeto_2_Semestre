@@ -11,9 +11,9 @@ class UsuarioModel {
         this.isHabilitado = isHabilitado
     }
 
-    get(callback) {
+    static get(email, callback) {
         const sql = 'SELECT * FROM usuarios WHERE email = ?;'
-        const values = [this.email]
+        const values = [email]
 
         db.conexao.query(sql, values, (err, result) => {
             if (err) {
@@ -31,6 +31,18 @@ class UsuarioModel {
                     callback(null, this)
                 }
             }
+        })
+    }
+
+    static updateSenha(senha, email, callback) {
+        const sql = 'UPDATE usuarios SET senha = ? WHERE email = ?'
+        const values = [senha, email]
+
+        db.conexao.query(sql, values, (err, result) => {
+            if (err)
+                callback(false)
+            else
+                callback(true)
         })
     }
 }

@@ -18,6 +18,14 @@ module.exports = {
         window.sessionStorage.setItem('isHabilitado', usuario.isHabilitado)
     },
 
+    salvarEmailSessao:function (email) {
+        window.sessionStorage.setItem('email', email)
+    },
+
+    pegarEmailSessao: function() {
+        return window.sessionStorage.getItem('email')
+    },
+
     limparSessao: function () {
         window.sessionStorage.clear()
     },
